@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template: 900px auto/450px auto;
+    gap: 0;
+
+}
+
+.left-item {
+    float: left;
+    background-image: url(./assets/left\ image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.search-div {
+    display: flex;
+    width: 300px;
+    margin: 50px 0px 40px 65px;
+    background-color: rgb(228, 209, 173);
+    border-radius: 20px;
+    height: 32px;
+}
+
+.searchbar {
+    width: 250px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(228, 209, 173);
+    font-size: 20px;
+}
+
+.search_for_food {
+    margin-top: 20px;
+    margin-left: 100px;
+    display: flex;
+
+    width: 700px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(228, 209, 173);
+    font-size: 20px;
+    align-items: centre;
+}
+
+.material-symbols-outlined {
+    margin: 3px 5px;
+    color: rgb(200, 104, 2);
+    font-size: 30px;
+
+}
+
+.food_images {
+    border-radius: 15px;
+    border-width: 5px;
+    border: rgb(248, 130, 42);
+    padding: 25px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+}
+
+
+.button-container {
+    padding:20px 45px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+img {
+    border-radius: 5px;
+}
+
+.ingredient-btn {
+    border-radius: 15px;
+    font-size: 20px;
+    min-width: 150px;
+    background-color: rgb(215, 97, 29);
+    border: none;
+    color: rgb(236, 231, 221);
+    font-weight: 600;
+    height: 32px;
+    margin: 10px 10px;
+}
+
+.food_button {
+    font-size:30px;
+    font-weight:500;
+    margin: 40px;
+    border-radius: 5px;
+    width: 250px;
+    color: rgb(245, 240, 233);
+    background-color: rgb(248, 130, 42);
+    border: none;
+    height: 300px;
+}
+.rightside{
+    float:right;
+    background-image: url("assets/background.png");
+    
+}
+.food-container {
+    padding: 30px;
+    display:grid;
+    justify-content: space-evenly;
+}
+
+.selected {
+    background-color: seagreen;
+}
+
+.error {
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    color: rgb(248, 130, 42);
+}
+h3{ margin:30px 40px;
+  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(243, 241, 238);
+    font-size: 40px;
+}
+h4{
+    margin:30px;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(229, 97, 14);
+    font-size: 30px; 
+}
+.button{
+    border:none;
+    border-radius: 10px;;
+    margin: 30px;
+    background-color:  rgb(115, 72, 43);
+    color:antiquewhite;
+    font-size:50px;
+
+}
+.showrecipebutton{
+    margin:40px;
+}

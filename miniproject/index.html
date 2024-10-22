@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Generator</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./styling.css">
+
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="left-item">
+      <h3>Select Ingredients:</h3>
+      <div class="button-container">
+        <button class="ingredient-btn" data-ingredient="milk">Milk</button>
+        <button class="ingredient-btn" data-ingredient="egg">Egg</button>
+        <button class="ingredient-btn" data-ingredient="cheese">Cheese</button>
+        <button class="ingredient-btn" data-ingredient="tomato">Tomato</button>
+        <button class="ingredient-btn" data-ingredient="wheat flour">Wheat Flour</button>
+        <button class="ingredient-btn" data-ingredient="cucumber">Cucumber</button>
+        <button class="ingredient-btn" data-ingredient="lettuce">Lettuce</button>
+        <button class="ingredient-btn" data-ingredient="sugar">Sugar</button>
+        <button class="ingredient-btn" data-ingredient="oil">Oil</button>
+      </div>
+      <div class="showrecipebutton"><button class="button" onclick="showRecipes()">Show Recipes</button></div>
+    </div>
+
+    <div class="rightside">
+      <div id="recipe-results" class="food-container"></div>
+    </div>
+    <!-- Recipes will appear here -->
+  </div>
+  </div>
+
+
+
+  <script>
+    let selectedIngredients = [];
+
+    // Toggle ingredient selection and add to array
+    function toggleIngredientSelection(ingredient) {
+      const index = selectedIngredients.indexOf(ingredient);
+      if (index > -1) {
+        selectedIngredients.splice(index, 1); // Remove ingredient if already selected
+      } else {
+        selectedIngredients.push(ingredient); // Add ingredient if not selected
+      }
+      console.log("Selected Ingredients: ", selectedIngredients);
+    }
+
+    // Show recipes based on selected ingredients
+    function showRecipes() {
+      const recipeContainer = document.getElementById('recipe-results');
+      let recipeResults = '';
+
+      if (selectedIngredients.length === 0) {
+        recipeResults = "<p class='error'>No ingredients selected. Please select some ingredients to see recipes.</p>";
+      } else {
+        recipeResults = `<h4>Recipes based on: ${selectedIngredients.join(", ")}</h3><ul>`;
+
+        // Example logic for showing recipes based on ingredients
+         if ((selectedIngredients.includes("milk") || selectedIngredients.includes("sugar")) && selectedIngredients.includes("egg")) {
+          recipeResults += "<a href='cake.html'> <button class='food_button'> <div class='food_images'><image  src='assets/cake.png'></image></div>Cake</button></a>";
+        }
+        if (selectedIngredients.includes("lettuce") && selectedIngredients.includes("tomato") && selectedIngredients.includes("cucumber")) {
+          recipeResults += " <a href='salad.html'> <button class='food_button'> <div class='food_images'><image  src='assets/salad.png'></image></div>Salad</button></a>";
+        }
+        if (selectedIngredients.includes("egg") && selectedIngredients.includes("oil")) {
+          recipeResults += " <a href='omelette.html'><button class='food_button'> <div class='food_images'><image  src='assets/omelette.png'></image></div>Omelette</button></a>";
+        }
+        if (selectedIngredients.includes("wheat flour") && selectedIngredients.includes("oil")) {
+          recipeResults += "<a href='roti.html'><button class='food_button'><div class='food_images'><img src='assets/roti.png' alt='Roti'></div>Roti</button></a>";
+        }
+        if ((selectedIngredients.includes("wheat flour") || selectedIngredients.includes("oil")) && selectedIngredients.includes("sugar") || selectedIngredients.includes("milk")) {
+          recipeResults += "<a href='pancake.html'><button id ='pancake' class='food_button'><div class='food_images'><img src='assets/pancakes.png' alt='Pancakes'></div>Pancakes</button></a>";
+        }
+
+
+        recipeResults += "</ul>";
+      }
+
+      recipeContainer.innerHTML = recipeResults;
+    }
+
+    // Add event listeners to all ingredient buttons
+    document.querySelectorAll('.ingredient-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        const ingredient = this.getAttribute('data-ingredient');
+        toggleIngredientSelection(ingredient);
+        this.classList.toggle('selected'); // Visually indicate selection
+      });
+    });
+  </script>
+  <style>
+    .selected {
+      background-color: seagreen;
+    }
+  </style>
+</body>
+
+</html>
